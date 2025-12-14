@@ -1,4 +1,4 @@
-# Combinador
+# Grid de Largada
 
 ## Enunciado
 
