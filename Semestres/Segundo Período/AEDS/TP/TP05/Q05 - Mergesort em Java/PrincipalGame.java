@@ -1,0 +1,774 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+class Game {
+    private int id;
+    private String nome;
+    private Data releaseDate;
+    private int estimatedOwners;
+    private float price;
+    private String supportedLanguages[];
+    private int metacriticScore;
+    private float userScore;
+    private int achievements;
+    private String publishers[];
+    private String developers[];
+    private String categories[];
+    private String genre[];
+    private String tags[];
+
+    public String listarArray(String array[]) {
+        if (array == null) {
+            return "[]";
+        }
+        String resposta = "[";
+        for (int i = 0; i < array.length; i++) {
+            resposta += array[i];
+            if (i != (array.length - 1))
+                resposta += ", ";
+        }
+        resposta += "]";
+        return resposta;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Data getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Data releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public int getEstimatedOwners() {
+        return estimatedOwners;
+    }
+
+    public void setEstimatedOwners(int estimatedOwners) {
+        this.estimatedOwners = estimatedOwners;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public String[] getSupportedLanguages() {
+        return supportedLanguages;
+    }
+
+    public void setSupportedLanguages(String[] supportedLanguages) {
+        this.supportedLanguages = supportedLanguages;
+    }
+
+    public int getMetacriticScore() {
+        return metacriticScore;
+    }
+
+    public void setMetacriticScore(int metacriticScore) {
+        this.metacriticScore = metacriticScore;
+    }
+
+    public float getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(float userScore) {
+        this.userScore = userScore;
+    }
+
+    public int getAchievements() {
+        return achievements;
+    }
+
+    public void setAchievements(int achievements) {
+        this.achievements = achievements;
+    }
+
+    public String[] getPublishers() {
+        return publishers;
+    }
+
+    public void setPublishers(String[] publishers) {
+        this.publishers = publishers;
+    }
+
+    public String[] getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(String[] developers) {
+        this.developers = developers;
+    }
+
+    public String[] getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String[] categories) {
+        this.categories = categories;
+    }
+
+    public String[] getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String[] genre) {
+        this.genre = genre;
+    }
+
+    public String[] getTags() {
+        return tags;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
+
+}
+
+class Data {
+    private int dia;
+    private int mes;
+    private int ano;
+
+    public Data(int dia, int mes, int ano) {
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
+
+    public String getData() {
+        return String.format("%02d/%02d/%d", dia, mes, ano);
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+}
+
+public class PrincipalGame {
+    
+    private static int numeroComparacoes = 0;
+    private static int numeroMovimentacoes = 0;
+
+    public static int stringParaInteiro(String texto) {
+        int contador = 1;
+        int resposta = 0;
+        for (int i = texto.length() - 1; i >= 0; i--) {
+            resposta += (texto.charAt(i) - '0') * contador;
+            contador *= 10;
+        }
+        return resposta;
+    }
+
+    public static float stringParaFloat(String texto) {
+        String inteira = "";
+        String decimal = "";
+        Boolean controle = true; // VERDADEIRO SALVA A PARTE INTEIRA E FALSO SALVA A PARTE DECIMAL
+
+        int inteiroFinal = 0;
+        float decimalFinal = 0;
+
+        //DIVIDE ENTRE A PARTE INTEIRA E A DECIMAL
+        for (int i = 0; i < texto.length(); i++) {
+            if(texto.charAt(i) != '.') {
+                if (controle) {
+                    inteira += texto.charAt(i);
+                } else if (!controle) {
+                    decimal += texto.charAt(i);
+                }
+            } else {
+                controle = false;
+            }
+        }
+
+        // FAZ A PARTE DECIMAL
+        int divisor = 10;
+        for (int i = 0; i < decimal.length(); i++) {
+            decimalFinal += (decimal.charAt(i) - '0') / (float) divisor;
+            divisor *= 10;
+        }
+
+        //CONVERTE PARA INTEIRO
+        inteiroFinal = stringParaInteiro(inteira);
+        return inteiroFinal + decimalFinal;
+    }
+
+    public static Data textoParaDate(String texto) {
+        // RECEBE UM TEXTO NESSE FORMATO: "Oct 18, 2018"
+        String mes = "";
+        String dia = "";
+        String ano = "";
+
+        int mesFinal;
+        // COMECA DO 1 E TEMINA EM texto.length()-1 PARA REMOVER AS ASPAS DUPLAS DO
+        // INICIO DE DO FIM
+        for (int i = 1; i < texto.length()-1; i++) {
+            if (i <= 3) {
+                mes += texto.charAt(i);
+            } else if (texto.length() == 14 && i > 4 && i <= 6) {
+                dia += texto.charAt(i);
+            } else if (texto.length() == 13 && i > 4 && i < 6) {
+                dia += texto.charAt(i);
+            } else if (texto.length() == 14 && i > 8) {
+                ano += texto.charAt(i);
+            } else if (texto.length() == 13 && i > 7) {
+                ano += texto.charAt(i);
+            }
+        }
+
+        // DEFINE O MES
+        switch (mes) {
+            case "Jan":
+                mesFinal = 1;
+                break;
+            case "Feb":
+                mesFinal = 2;
+                break;
+            case "Mar":
+                mesFinal = 3;
+                break;
+            case "Apr":
+                mesFinal = 4;
+                break;
+            case "May":
+                mesFinal = 5;
+                break;
+            case "Jun":
+                mesFinal = 6;
+                break;
+            case "Jul":
+                mesFinal = 7;
+                break;
+            case "Aug":
+                mesFinal = 8;
+                break;
+            case "Sep":
+                mesFinal = 9;
+                break;
+            case "Oct":
+                mesFinal = 10;
+                break;
+            case "Nov":
+                mesFinal = 11;
+                break;
+            case "Dec":
+                mesFinal = 12;
+                break;
+            default:
+                mesFinal = 1;
+                break;
+        }
+        Data data = new Data(stringParaInteiro(dia), mesFinal, stringParaInteiro(ano));
+        return data;
+
+    }
+
+    //FUNCAO PARA CORTAR STRING RECEBIDA A PARTIR DE UM INICIO INCLUSIVO
+    public static String cortarString(String texto, int inicio) {
+        String resultado = "";
+        for (int i = inicio; i < texto.length(); i++) {
+            resultado += texto.charAt(i);
+        }
+        return resultado;
+    }
+
+    public static String[] separarArrayPais(String texto) {
+        //CONTA QUANTOS ELEMENTOS TEM
+        int n=1;
+        for (int i = 1; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',')
+                n++;
+        }
+
+        String aux = "";
+        String novoArray[] = new String[n];
+        int contador = 0;
+
+        Boolean primeiroElemento = true;
+
+        //COMECA EM 2 PARA REMOVER ABERTURA DE COLCHETE
+        for (int i = 2; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',' || i == (texto.length()-2)) {
+                //SE NAO FOR O PRIMEIRO ELEMENTO, RETIRA O SEGUINTE TEXTO DO INICIO: ", "
+                if(!primeiroElemento) {
+                    aux = cortarString(aux, 2);
+                    
+                } else {
+                    primeiroElemento = false;
+                }
+                novoArray[contador] = aux;
+                contador++;
+                aux = "";
+            }
+            if(texto.charAt(i) != '\'') {
+                aux+= texto.charAt(i);
+            }
+        }
+
+        return novoArray;
+    }
+
+    public static String[] separarArrayPublisher(String texto) {
+        //CONTA QUANTOS ELEMENTOS TEM
+        int n=1;
+        for (int i = 1; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',')
+                n++;
+        }
+
+        String aux = "";
+        String novoArray[] = new String[n];
+        int contador = 0;
+
+        Boolean primeiroElemento = true;
+
+        int iInicial=0;
+        int contadorAspasDuplas = 0;
+        Boolean contemVirgula = false;
+        for (int i = 0; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == '"')
+                contadorAspasDuplas++;
+            else if(texto.charAt(i) == ',')
+                contemVirgula = true;
+        }
+        if(contadorAspasDuplas >= 2)
+            iInicial = 1;
+
+        if(contemVirgula) {
+            for (int i = iInicial; i < texto.length()-1; i++) {
+                if(texto.charAt(i) == ',' || i == (texto.length()-2)) {
+                    //SE NAO FOR O PRIMEIRO ELEMENTO, RETIRA O SEGUINTE TEXTO DO INICIO: ", "
+                    if(!primeiroElemento) {
+                        aux = cortarString(aux, 1);
+                        
+                    } else {
+                        primeiroElemento = false;
+                    }
+                    novoArray[contador] = aux;
+                    contador++;
+                    aux = "";
+                }
+                if(texto.charAt(i) != '\'') {
+                    aux+= texto.charAt(i);
+                }
+            }
+        } else {
+            novoArray[0] = texto;
+        }
+
+        return novoArray;
+    }
+
+    public static String[] separarArrayCategories(String texto) {
+        //CONTA QUANTOS ELEMENTOS TEM
+        int n=1;
+        for (int i = 1; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',')
+                n++;
+        }
+
+        String aux = "";
+        String novoArray[] = new String[n];
+        int contador = 0;
+
+        Boolean primeiroElemento = true;
+
+        int iInicial=0;
+        int contadorAspasDuplas = 0;
+        Boolean contemVirgula = false;
+        for (int i = 0; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == '"')
+                contadorAspasDuplas++;
+            else if(texto.charAt(i) == ',')
+                contemVirgula = true;
+        }
+        if(contadorAspasDuplas >= 2)
+            iInicial = 1;
+
+        if(contemVirgula) {
+            for (int i = 1; i < texto.length()-1; i++) {
+                if(texto.charAt(i) == ',' || i == (texto.length()-2)) {
+                    //NAO ADICIONA A VIRGULA MAS ADICIONA O ULTIMO CARACTERE DA ULTIMA PALAVRA
+                    if(texto.charAt(i) != ',')
+                        aux+= texto.charAt(i);
+                    //SE NAO FOR O PRIMEIRO ELEMENTO, RETIRA O SEGUINTE TEXTO DO INICIO: ", "
+                    if(!primeiroElemento) {
+                        aux = cortarString(aux, 1);
+                    } else {
+                        primeiroElemento = false;
+                    }
+                    novoArray[contador] = aux;
+                    contador++;
+                    aux = "";
+                }
+                if(texto.charAt(i) != '\'') {
+                    aux+= texto.charAt(i);
+                }
+            }
+        } else {
+            novoArray[0] = texto;
+        }
+
+        return novoArray;
+    }
+
+    public static String[] separarArray(String texto) {
+        //CONTA QUANTOS ELEMENTOS TEM
+        int n=1;
+        for (int i = 1; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',')
+                n++;
+        }
+
+        String aux = "";
+        String novoArray[] = new String[n];
+        int contador = 0;
+
+        Boolean primeiroElemento = true;
+
+        //COMECA EM 2 PARA REMOVER ABERTURA DE COLCHETE
+        for (int i = 2; i < texto.length()-1; i++) {
+            if(texto.charAt(i) == ',' || i == (texto.length()-2)) {
+                //SE NAO FOR O PRIMEIRO ELEMENTO, RETIRA O SEGUINTE TEXTO DO INICIO: ", "
+                if(!primeiroElemento) {
+                    aux = cortarString(aux, 1);
+                    
+                } else {
+                    primeiroElemento = false;
+                }
+                novoArray[contador] = aux;
+                contador++;
+                aux = "";
+            }
+            if(texto.charAt(i) != '\'') {
+                aux+= texto.charAt(i);
+            }
+        }
+
+        return novoArray;
+    }
+
+    public static Game lerGame(String linha) {
+        Game game = new Game();
+
+        String valor = "";
+        int parametro = 0;
+
+        Boolean aspasAbertas = false;
+
+        for (int i = 0; i < linha.length(); i++) {
+            if(linha.charAt(i) == '"') {
+                aspasAbertas = !aspasAbertas;
+            }
+            if (linha.charAt(i) != ',') {
+                valor += linha.charAt(i);
+            } else if (aspasAbertas) {
+                valor += linha.charAt(i);
+            } else {
+                switch (parametro) {
+                    case 0:
+                        game.setId(stringParaInteiro(valor));
+                        break;
+
+                    case 1:
+                        game.setNome(valor);
+                        break;
+
+                    case 2:
+                        game.setReleaseDate(textoParaDate(valor));
+                        break;
+
+                    case 3:
+                        game.setEstimatedOwners(stringParaInteiro(valor));
+                        break;
+
+                    case 4:
+                        game.setPrice(stringParaFloat(valor));
+                        break;
+
+                    case 5:
+                        game.setSupportedLanguages(separarArrayPais(valor));
+                        break;
+
+                    case 6:
+                        game.setMetacriticScore(stringParaInteiro(valor));
+                        break;
+
+                    case 7:
+                        game.setUserScore(stringParaFloat(valor));
+                        break;
+
+                    case 8:
+                        game.setAchievements(stringParaInteiro(valor));
+                        break;
+
+                    case 9:
+                        game.setPublishers(separarArrayPublisher(valor));
+                        break;
+
+                    case 10:
+                        game.setDevelopers(separarArrayPublisher(valor));
+                        break;
+
+                    case 11:
+                        game.setCategories(separarArrayCategories(valor));
+                        break;
+
+                    case 12:
+                        game.setGenre(separarArrayPublisher(valor));
+                        break;
+
+                    case 13:
+                        game.setTags(separarArrayPublisher(valor));
+                        break;
+
+                    default:
+                        break;
+                }
+                parametro++;
+                valor = "";
+            }
+        }
+
+        return game;
+    }
+
+    //FUNCAO PARA VERIFICAR SE A STRING E IGUAL A OUTRA
+    public static boolean equals(String a, String b) {
+        for (int i = 0; i < a.length(); i++) {
+            //SE ALGUM CARACTERE FOR DIFERENTE, RETORNA FALSE
+            if (a.charAt(i) != b.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void buscarPeloID(int id, Game listaGames[]) {
+        for (Game game : listaGames) {
+            if (game != null && game.getId() == id) {
+                System.out.println("=> " + game.getId() + " ## " + 
+                    (game.getNome() != null ? game.getNome() : " ") + " ## " + 
+                    (game.getReleaseDate() != null ? game.getReleaseDate().getData() : " ") + " ## " + 
+                    game.getEstimatedOwners() + " ## " + 
+                    game.getPrice() + " ## " + 
+                    game.listarArray(game.getSupportedLanguages()) + " ## " + 
+                    game.getMetacriticScore() + " ## " + 
+                    game.getUserScore() + " ## " + 
+                    game.getAchievements() + " ## " + 
+                    game.listarArray(game.getPublishers()) + " ## " + 
+                    game.listarArray(game.getDevelopers()) + " ## " + 
+                    game.listarArray(game.getCategories()) + " ## " + 
+                    game.listarArray(game.getGenre()) + " ## " + 
+                    game.listarArray(game.getTags()) + " ##");
+            }
+        }
+    }
+
+    public static void sort(Game array[], int n) {
+        numeroComparacoes = 0;
+        numeroMovimentacoes = 0;
+        
+        long tempoInicial = System.currentTimeMillis();
+
+        mergesort(array, 0, n-1);
+
+        long tempoFinal = System.currentTimeMillis();
+        long tempoExecucao = tempoFinal - tempoInicial;
+        
+        escreverLog(tempoExecucao);
+    }
+
+    /**
+     * Algoritmo de ordenacao Mergesort.
+     * @param array array a ser ordenado
+     * @param esq inicio do array a ser ordenado
+     * @param dir fim do array a ser ordenado
+     */
+    private static void mergesort(Game array[], int esq, int dir) {
+        if (esq < dir){
+            int meio = (esq + dir) / 2;
+            mergesort(array, esq, meio);
+            mergesort(array, meio + 1, dir);
+            intercalar(array, esq, meio, dir);
+        }
+    }
+
+    /**
+     * Algoritmo que intercala os elementos entre as posicoes esq e dir
+     * @param array array a ser ordenado
+     * @param esq inicio do array a ser ordenado
+     * @param meio posicao do meio do array a ser ordenado
+     * @param dir fim do array a ser ordenado
+     */ 
+    public static void intercalar(Game array[], int esq, int meio, int dir){
+        int n1, n2, i, j, k;
+
+        //Definir tamanho dos dois subarrays
+        n1 = meio-esq+1;
+        n2 = dir - meio;
+
+        Game[] a1 = new Game[n1+1];
+        Game[] a2 = new Game[n2+1];
+
+        //Inicializar primeiro subarray
+        for(i = 0; i < n1; i++){
+            a1[i] = array[esq+i];
+            numeroMovimentacoes++;
+        }
+
+        //Inicializar segundo subarray
+        for(j = 0; j < n2; j++){
+            a2[j] = array[meio+j+1];
+            numeroMovimentacoes++;
+        }
+
+        //Sentinela no final dos dois arrays
+        a1[i] = a2[j] = null;
+
+        //Intercalacao propriamente dita
+        for(i = j = 0, k = esq; k <= dir; k++){
+            if (a1[i] == null) {
+                array[k] = a2[j++];
+                numeroMovimentacoes++;
+            } else if (a2[j] == null) {
+                array[k] = a1[i++];
+                numeroMovimentacoes++;
+            } else {
+                numeroComparacoes++;
+                array[k] = (comparar(a1[i], a2[j]) <= 0) ? a1[i++] : a2[j++];
+                numeroMovimentacoes++;
+            }
+        }
+    }
+
+    public static int comparar(Game a, Game b) {
+        // PRIMEIRO CRITERIO: PRICE
+        if (a.getPrice() != b.getPrice()) {
+            return Float.compare(a.getPrice(), b.getPrice());
+        }
+        // SE DER EMPATE USA: ID do jogo
+        return Integer.compare(a.getId(), b.getId());
+    }
+
+    public static void escreverLog(long tempoExecucao) {
+        try {
+            FileWriter writer = new FileWriter("885810_mergesort.txt");
+            writer.write("885810\t" + numeroComparacoes + "\t" + numeroMovimentacoes + "\t" + tempoExecucao + "\n");
+            writer.close();
+        } catch (IOException e) {}
+    }
+
+    public static void main(String args[]) throws IOException {
+        BufferedReader buffRead = new BufferedReader(new FileReader("/tmp/games.csv"));
+        String linha = "";
+        Boolean status = true;
+        int contadorLinha = 0;
+
+        Game listaGames[] = new Game[10000];
+        int index = 0;
+        while (status) {
+            if (linha != null) {
+                if (contadorLinha > 1) {
+                    //ADICIONA A VIRGULA NO FINAL PARA A FUNCAO LERGAME IDENTIFICAR O FIM DO PARAMETRO
+                    linha = linha+=" , ";
+                    Game tmp = lerGame(linha);
+                    listaGames[index] = tmp;
+                    index++;
+                }
+            } else {
+                status = false;
+            }
+            try {
+                linha = buffRead.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            contadorLinha++;
+        }
+        buffRead.close();
+
+        //CRIA A LISTA COM OS ELEMENTOS DESEJADOS PARA PODER ORDENAR
+        Game listaGamesFinal[] = new Game[10000];
+        int indexListaGamesFinal = 0;
+
+        //FAZ AS BUSCAS
+        try (Scanner sc = new Scanner(System.in)) {
+            String id = sc.nextLine();
+
+            //LE ATE ENCONTRAR "FIM"
+            while (!equals(id, "FIM")) {
+                for (Game game : listaGames) {
+                    if (game != null && game.getId() == stringParaInteiro(id)) {
+                        listaGamesFinal[indexListaGamesFinal] = game;
+                        indexListaGamesFinal++;
+                    }
+                }
+                id = sc.nextLine();
+            }
+        }
+
+        //ORDENA O LISTA GAMES FINAL
+        sort(listaGamesFinal, indexListaGamesFinal);
+
+        //IMPRIME DE FORMA ORDENADA
+        System.out.println("| 5 precos mais caros |");
+        for (int i = (indexListaGamesFinal-1); i >= (indexListaGamesFinal - 6); i--) {
+            if (listaGamesFinal[i] != null) {
+                buscarPeloID(listaGamesFinal[i].getId(), listaGamesFinal);
+            }
+        }
+
+        //IMPRIME DE FORMA ORDENADA
+        System.out.println("| 5 precos mais baratos |");
+        for (int i = 0; i < 5; i++) {
+            if (listaGamesFinal[i] != null) {
+                buscarPeloID(listaGamesFinal[i].getId(), listaGamesFinal);
+            }
+        }
+    }
+}
+
