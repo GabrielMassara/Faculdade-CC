@@ -9,9 +9,9 @@ Este repositório documenta minha jornada acadêmica na graduação em Ciência 
 
 ---
 
-## 📚 Estrutura do Repositório
+## Estrutura do Repositório
 
-### 🗂️ Organização por Semestres
+### Organização por Semestres
 
 O repositório está estruturado hierarquicamente por semestres e disciplinas:
 
