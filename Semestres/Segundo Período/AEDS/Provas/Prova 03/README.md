@@ -1,4 +1,4 @@
-# Prova 02 Laboratório - AEDS
+# Prova 03 Laboratório - AEDS
 
 Este repositório contém as questões da prova do Laboratório da disciplina de Algoritmos e Estruturas de Dados 2 (AEDS2). Cada pasta corresponde a uma questão específica da prova.
 
