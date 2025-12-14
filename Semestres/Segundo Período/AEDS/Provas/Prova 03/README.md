@@ -23,8 +23,8 @@ Cada pasta de atividade segue a mesma estrutura:
 
 **Questão da Questão 02:**
 - Teste público: 100%
-- Teste privado: 100%
-- Média geral: 100%
+- Teste privado: 17.8%
+- Média geral: 58.9%
 
 ### Nota Final
-**8/8**
+**7/8**
