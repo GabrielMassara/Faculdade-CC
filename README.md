@@ -20,12 +20,18 @@ O repositório está estruturado hierarquicamente por semestres e disciplinas:
 ├── 📄 README.md
 └── 📁 Semestres/
     ├── 📁 Primeiro Período/
-    │   ├── 📁 LIP/          
-    │   └── 📁 TI/           
+    │   ├── 📁 LIP/
+    │   └── 📁 TI/
     ├── 📁 Segundo Período/
-    │   ├── 📁 AEDS/         
-    │   └── 📁 TI/           
-    └── 📁 [Próximos Períodos]/
+    │   ├── 📁 AEDS/
+    │   ├── 📁 Arquitetura de Computadores/
+    │   ├── 📁 Engenharia de Software/
+    │   └── 📁 TI/
+    └── 📁 Terceiro Período/
+        ├── 📁 Algoritmos e Estrutura de Dados 3/
+        ├── 📁 Arquitetura de Computadores 2/
+        ├── 📁 BD/
+        └── 📁 Linguagens de Programação/
 ```
 
 ### 🔍 Como Encontrar uma Disciplina Específica
