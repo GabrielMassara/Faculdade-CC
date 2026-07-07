@@ -1,0 +1,32 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Algoritmos de validação da confiança em sistemas de automação inteligente
+authors:
+  - family-names: Evangelista Massara
+    given-names: Gabriel
+
+  - family-names: Santos Beloni
+    given-names: Gabriel Egídio
+
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Castro Belém
+    given-names: Felipe
+
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Meirelles Gouvea Junior
+    given-names: Maury
+
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Santos Pereira
+    given-names: João Pedro
+
+keywords:
+  - 
+  - 
+repository-code: 
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2022-07-14

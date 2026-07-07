@@ -31,7 +31,8 @@ O repositório está estruturado hierarquicamente por semestres e disciplinas:
         ├── 📁 Algoritmos e Estrutura de Dados 3/
         ├── 📁 Arquitetura de Computadores 2/
         ├── 📁 BD/
-        └── 📁 Linguagens de Programação/
+        ├── 📁 Linguagens de Programação/
+        └── 📁 TI/
 ```
 
 ### 🔍 Como Encontrar uma Disciplina Específica
