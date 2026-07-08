@@ -1,0 +1,222 @@
+{
+  "eventos": [
+    {
+      "id": 1,
+      "titulo": "BH STOCK FESTIVAL 2025",
+      "descricao": "Se 2024 foi o ano em que largamos na pole position, 2025 promete ser a volta mais rápida dessa corrida rumo à inovação, conexões e muito mais EMOÇÃO! Após aprendermos com cada curva, ultrapassagem e pit stop, estamos prontos para ir além, com ainda mais experiências inesquecíveis para marcas, famílias e fãs. Prepare-se para um evento maior, mais estratégico, impactante e confortável. O BH Stock Festival 2025 será um grid de largada repleto de novas possibilidades, onde VOCÊ será desafiado a acelerar em direção à emoções a cada curva! Vem com a gente, porque o futuro já está no horizonte, e o BH Stock Festival será sua próxima conquista! 🏁",
+      "descricaoBreve": "Vem com a gente, porque o futuro já está no horizonte, e o BH Stock Festival será sua próxima conquista! 🏁",
+      "cidade": 0,
+      "endereco": "Av. Antônio Abrahão Caram, 1001 - Esplanada Norte - São José",
+      "dataInicio": "15/08/2025 08:00",
+      "dataFim": "17/08/2025 23:59",
+      "preco": 200,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/1.png",
+      "categoria": 4,
+      "contadorClick": 0,
+      "destaque": true,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/1.jpg"
+        },
+        {
+          "id": 2,
+          "src": "assets/img/complementares/2.jpg"
+        },
+        {
+          "id": 3,
+          "src": "assets/img/complementares/3.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "CARNACHALÉ 17 ANOS",
+      "descricao": "Evento de comemoração dos 17 anos do CARNACHALÉ",
+      "descricaoBreve": "Evento de comemoração dos 17 anos do CARNACHALÉ",
+      "cidade": 0,
+      "endereco": "Av. Professor Mário Werneck, 530, Belo Horizonte - MG",
+      "dataInicio": "12/04/2025 13:00",
+      "dataFim": "13/04/2025 06:00",
+      "preco": 200,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/2.png",
+      "categoria": 5,
+      "contadorClick": 0,
+      "destaque": true
+    },
+    {
+      "id": 3,
+      "titulo": "House Paradise 9 Anos | Vintage Culture",
+      "descricao": "Dia 30 de Abril de 2025, vamos reviver fortes emoções e celebrar juntos tudo nos uniu até aqui. Nosso Special Guest VINTAGE CULTURE, um dos artistas mais aclamados de todos os tempos! E mais Departamento, Doozie, Meca e outros artistas que estão por vir!",
+      "descricaoBreve": "Com participação do DJ Vintage Culture",
+      "cidade": 0,
+      "endereco": "Parque de Exposições de Divinópolis, Divinópolis - MG",
+      "dataInicio": "30/04/2025 22:00",
+      "dataFim": "01/05/2025 10:00",
+      "preco": 105,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/3.png",
+      "categoria": 5,
+      "contadorClick": 0,
+      "destaque": true,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/7.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "titulo": "PROJETO X",
+      "descricao": "A maior festa universitária das atléticas de BH",
+      "descricaoBreve": "A maior festa universitária das atléticas de BH",
+      "cidade": 0,
+      "endereco": "A definir",
+      "dataInicio": "24/04/2025 21:00",
+      "dataFim": "25/04/2025 06:00",
+      "preco": 200,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/4.png",
+      "categoria": 5,
+      "contadorClick": 0,
+      "destaque": false,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/4.jpg"
+        },
+        {
+          "id": 2,
+          "src": "assets/img/complementares/5.jpg"
+        },
+        {
+          "id": 3,
+          "src": "assets/img/complementares/6.jpg"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "titulo": "DRIFT FESTIVAL - MEUTRACKMINHAVIDA",
+      "descricao": "O mais democrático Track de Belo Horizonte terá uma edição inédita de DRIFT com várias atrações",
+      "descricaoBreve": "...",
+      "cidade": 0,
+      "endereco": "MEGA SPACE",
+      "dataInicio": "12/04/2025 10:00",
+      "dataFim": "12/04/2025 17:00",
+      "preco": 48.6,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/5.png",
+      "categoria": 4,
+      "contadorClick": 0,
+      "destaque": false
+    },
+    {
+      "id": 6,
+      "titulo": "Cidade Junina - 28/06 | ZÉ RAMALHO + FALAMANSA",
+      "descricao": "Em sua 4ª edição, a Cidade Junina 2025 vem com um conceito que é a nossa cara: –ISSO É TÃO A GENTE!- trazendo a nossa autenticidade mineira e explorando nossas raízes sem deixar de abraçar todos os ritmos e todo mundo que ama essa festividade! Uma festa cheia de tradição, sabor e aquele jeitinho mineiro que a gente ama.",
+      "descricaoBreve": "Se tem uma coisa que o mineiro gosta, é de festa boa, uai! E a Cidade Junina tem tudo isso e muito mais!",
+      "cidade": 0,
+      "endereco": "Mirante Beagá, Belo Horizonte - MG",
+      "dataInicio": "28/06/2025 19:00",
+      "dataFim": "29/06/2025 03:00",
+      "preco": 190,
+      "quantidadeIngressos": 900,
+      "banner": "assets/img/banners/6.png",
+      "categoria": 5,
+      "contadorClick": 0,
+      "destaque": false,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/8.jpg"
+        },
+        {
+          "id": 2,
+          "src": "assets/img/complementares/9.jpg"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "titulo": "Rota dos Inconfidentes - Caminho Velho da Estrada Real - 03 dias e 02 noites",
+      "descricao": "Rota criada para que você tenha uma inserção na cultura mineira, o fazer das coisas, como fazer um queijo, um doce, uma cachaça, um tecido, dentre outros, são detalhes e técnicas passadas de geração para geração, mantendo a cultura e economia da região. Iremos percorrer trechos do Caminho Velho da Estrada Real, a mais antiga estrada aberta oficialmente pela Coroa Portuguesa, no século XVIII, sendo hoje junto com os outros Caminhos, o Novo, o dos Diamantes e o do Sabarabuçu, o maior circuito turístico do Brasil, com mais de 1600 km de extensão. Fim de semana rico em cultura, história, com múltiplas experiências com foco na gastronomia local.Duas pernoites na charmosa, linda e bem preservada Tiradentes, cidade onde você não tem vontade nenhuma de ir embora, curtindo duas noites, podendo passear a pé pelo centro histórico, com segurança, tranquilidade e muita nostalgia.Música ao vivo, órgão na matriz, teatro de bonecos, bares, excelente leque de belos restaurantes de serviço impecável, de alta gastronomia, mas sem esquecer dos ingredientes locais, valorizando e mantendo a rede de fornecedores, gerando emprego e renda. Venha ser feliz com a gente conhecendo esse riquíssimo estado Minas Gerais, pois com certeza quem te conhece não esquece jamais.",
+      "descricaoBreve": "Venha realizar a Rota dos Inconfidentes",
+      "cidade": 0,
+      "endereco": "Estrada Real - Caminho Velho, Santa Cruz de Minas - MG",
+      "dataInicio": "04/07/2025 07:00",
+      "dataFim": "06/07/2025 06:00",
+      "preco": 5820,
+      "quantidadeIngressos": 50,
+      "banner": "assets/img/banners/7.png",
+      "categoria": 6,
+      "contadorClick": 0,
+      "destaque": false,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/10.jpg"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "titulo": "Craft Beer 03 e 04.05",
+      "descricao": "Serão apenas 2 dias de eventos, não fique de fora!  Festival de Cervejas, Gastronomia e bandas! ",
+      "descricaoBreve": "VAMOS JUNTOS APROVEITAR A NOSSA MAIOR EDIÇÃO ;)  ",
+      "cidade": 0,
+      "endereco": "Av. Cláudio A. Barbosa, 24",
+      "dataInicio": "03/05/2025 11:00",
+      "dataFim": "04/05/2025 21:00",
+      "preco": 0,
+      "quantidadeIngressos": 300,
+      "banner": "assets/img/banners/8.png",
+      "categoria": 2,
+      "contadorClick": 0,
+      "destaque": false,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/11.jpg"
+        },
+        {
+          "id": 2,
+          "src": "assets/img/complementares/12.jpg"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "titulo": "INSTITUTO INHOTIM 2025",
+      "descricao": "O Instituto Inhotim é um dos principais destinos culturais e turísticos do Brasil, situado em Brumadinho-MG, a aproximadamente 60 quilômetros de Belo Horizonte, em Minas Gerais. Com 140 hectares de área de visitação, o Inhotim é uma combinação única de museu de arte contemporânea, jardim botânico e espaços voltados para a educação e sustentabilidade. São 140 hectares de área de visitação que harmonizam uma coleção artística de relevância internacional – obras expostas a céu aberto e em galerias, com um acervo botânico de espécies de todos os continentes. Outros 250 hectares formam uma Reserva Particular de Patrimônio Natural (RPPN) que colabora de forma vitalícia para a conservação da biodiversidade local. Prepare-se para se encantar com os espaços de fruição, conhecimento, lazer e natureza que tornam o Inhotim um lugar único no mundo!",
+      "descricaoBreve": "Venha nos Visitar!",
+      "cidade": 0,
+      "endereco": "Rua B, 20, Brumadinho - Minas Gerais",
+      "dataInicio": "20/05/2025 11:00",
+      "dataFim": "24/05/2025 21:00",
+      "preco": 138,
+      "quantidadeIngressos": 500,
+      "banner": "assets/img/banners/9.png",
+      "categoria": 3,
+      "contadorClick": 0,
+      "destaque": false,
+      "imagens_complementares": [
+        {
+          "id": 1,
+          "src": "assets/img/complementares/13.jpg"
+        },
+        {
+          "id": 2,
+          "src": "assets/img/complementares/14.jpg"
+        },
+        {
+          "id": 3,
+          "src": "assets/img/complementares/15.jpg"
+        }
+      ]
+    }
+  ]
+}

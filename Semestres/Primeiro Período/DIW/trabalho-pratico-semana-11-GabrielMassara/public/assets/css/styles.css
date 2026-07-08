@@ -1,0 +1,287 @@
+:root {
+    --primary-color: #9b5bbf;
+    --secondary-color: #fed848;
+    --text-color: #333;
+    --bg-color: #f4f5f7;
+    --btn-border-color: var(--primary-color);
+    --btn-hover-bg: var(--primary-color);
+    --btn-hover-text: var(--secondary-color);
+    --shadow-light: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.navbar {
+    background-color: transparent;
+}
+
+.gradient-menu {
+    background: linear-gradient(45deg, #8A2BE2, #FF4C4C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    width: max-content;
+}
+
+.gradient-footer {
+    padding: 50px;
+    background: linear-gradient(45deg, #8A2BE2, #FF4C4C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-nav .nav-link {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+main {
+    margin-top: 5rem;
+    /* Substituindo px por rem */
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dataPassada {
+    color: red;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    box-shadow: var(--shadow-light);
+    width: 100%;
+    max-width: 31.25rem;
+}
+
+.searchResult {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-light);
+    height: 100px;
+    max-width: 31.25rem;
+    border-radius: 15px;
+}
+
+.search .icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    color: #666;
+    margin-right: 0.5rem;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    background: transparent;
+}
+
+.search input::placeholder {
+    color: #aaa;
+}
+
+.search:focus-within {
+    box-shadow: var(--shadow-dark);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.625rem;
+    gap: 0.625rem;
+}
+
+.btn {
+    min-width: 6.25rem;
+    text-align: center;
+    color: var(--primary-color);
+    border-color: var(--btn-border-color);
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-bg);
+    border-color: transparent;
+    color: var(--btn-hover-text);
+}
+
+.categorias {
+    padding-left: 3.125rem;
+    padding-right: 3.125rem;
+}
+
+.categoria {
+    margin-top: 3.125rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-dark);
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    color: #7a7a7a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -0.625rem;
+}
+
+.title {
+    color: var(--primary-color);
+    font-family: 'Lato', sans-serif;
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.carouselGrupo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-block {
+    max-width: 600px;
+}
+
+.carousel-inner {
+    max-width: 600px;
+}
+
+.svg16 {
+    width: 16px;
+    height: 16px;
+}
+
+.svg20 {
+    width: 20px;
+    height: 20px;
+}
+
+.svg30 {
+    width: 30px;
+    height: 30px;
+}
+
+.logo {
+    width: 140px;
+}
+
+.carousel {
+    max-width: 900px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.p-3 {
+    cursor: pointer;
+}
+
+.card-img-top {
+    max-height: 150px;
+}
+
+.fotoPerfil {
+    width: 100px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.githubIcon {
+    width: 30px;
+    height: 30px;
+}
+
+/*
+ESPECÍFICO PARA O DETALHES
+*/
+
+.bannerDetalhes {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 300px;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .bannerDetalhes {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    #tituloEvento {
+        font-size: 1.5rem;
+    }
+
+    #descricaoBreveEvento {
+        font-size: 1rem;
+    }
+
+    .bannerDetalhes .container .row {
+        flex-direction: column;
+    }
+}
+
+
+.bannerDetalhes::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.teste {
+    padding: 20px;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.cardEvento {
+    min-height: 400px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.complementarGrupo {
+    text-align: center;
+}
+
+.imagemComplementar {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+}
+
+.fotosItem {
+    padding: 20px;
+}
